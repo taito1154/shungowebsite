@@ -98,8 +98,8 @@ const Photos: React.FC = () => {
               createMesh();
             }
           },
-          undefined,
-          (err) => console.error(`Failed to load texture at ${path}`, err)
+          undefined
+          // (err) => console.error(`Failed to load texture at ${path}`, err)
         );
       });
     });
@@ -126,6 +126,8 @@ const Photos: React.FC = () => {
           isHovered = currentlyHovered;
 
           if (isHovered) {
+            overlayMesh2.current.visible = true;
+            overlayMesh3.current.visible = true;
             gsap.to(overlayMesh2.current.position, { x: -1.5, duration: 0.3 });
             gsap.to(overlayMesh3.current.position, { x: 1.5, duration: 0.3 });
             gsap.to(
@@ -143,6 +145,10 @@ const Photos: React.FC = () => {
               {
                 opacity: 0,
                 duration: 0.3,
+                onComplete: () => {
+                  overlayMesh2.current.visible = false;
+                  overlayMesh3.current.visible = false;
+                },
               }
             );
           }
@@ -263,6 +269,7 @@ const Photos: React.FC = () => {
         })
       );
       overlayMesh2.current.position.set(-0.5, 0, -0.1);
+      overlayMesh2.current.visible = false; // 🎯 初期状態で不可視
 
       overlayMesh3.current = new THREE.Mesh(
         geometry,
@@ -273,6 +280,7 @@ const Photos: React.FC = () => {
         })
       );
       overlayMesh3.current.position.set(0.5, 0, -0.2);
+      overlayMesh3.current.visible = false; // 🎯 初期状態で不可視
 
       scene.add(overlayMesh2.current);
       scene.add(overlayMesh3.current);
