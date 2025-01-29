@@ -104,7 +104,6 @@ const Photos: React.FC = () => {
       });
     });
 
-    // ✅ Hover エフェクト
     function setupHoverEffect() {
       const raycaster = new THREE.Raycaster();
       const mouse = new THREE.Vector2();
@@ -126,28 +125,38 @@ const Photos: React.FC = () => {
           isHovered = currentlyHovered;
 
           if (isHovered) {
-            overlayMesh2.current.visible = true;
-            overlayMesh3.current.visible = true;
-            gsap.to(overlayMesh2.current.position, { x: -1.5, duration: 0.3 });
-            gsap.to(overlayMesh3.current.position, { x: 1.5, duration: 0.3 });
-            gsap.to(
-              [overlayMesh2.current.material, overlayMesh3.current.material],
-              {
-                opacity: 1,
-                duration: 0.3,
-              }
-            );
+            if (overlayMesh2.current && overlayMesh3.current) {
+              overlayMesh2.current.visible = true;
+              overlayMesh3.current.visible = true;
+              gsap.to(overlayMesh2.current.position, {
+                x: -1.5,
+                duration: 0.2,
+              });
+              gsap.to(overlayMesh3.current.position, { x: 1.5, duration: 0.2 });
+              gsap.to(
+                [overlayMesh2.current.material, overlayMesh3.current.material],
+                {
+                  opacity: 1,
+                  duration: 0.2,
+                }
+              );
+            }
           } else {
-            gsap.to(overlayMesh2.current.position, { x: -0.5, duration: 0.3 });
-            gsap.to(overlayMesh3.current.position, { x: 0.5, duration: 0.3 });
+            gsap.to(overlayMesh2.current.position, { x: -0.5, duration: 0.2 });
+            gsap.to(overlayMesh3.current.position, { x: 0.5, duration: 0.2 });
+
             gsap.to(
               [overlayMesh2.current.material, overlayMesh3.current.material],
               {
                 opacity: 0,
-                duration: 0.3,
-                onComplete: () => {
-                  overlayMesh2.current.visible = false;
-                  overlayMesh3.current.visible = false;
+                duration: 0.2,
+                onUpdate: () => {
+                  if (overlayMesh2.current && overlayMesh3.current) {
+                    if (overlayMesh2.current.material.opacity <= 0.05) {
+                      overlayMesh2.current.visible = false;
+                      overlayMesh3.current.visible = false;
+                    }
+                  }
                 },
               }
             );
@@ -155,11 +164,38 @@ const Photos: React.FC = () => {
         }
       };
 
+      const onMouseLeave = () => {
+        if (!isHovered) return;
+        isHovered = false;
+        if (!overlayMesh2.current || !overlayMesh3.current) return;
+
+        gsap.to(overlayMesh2.current.position, { x: -0.5, duration: 0.2 });
+        gsap.to(overlayMesh3.current.position, { x: 0.5, duration: 0.2 });
+
+        gsap.to(
+          [overlayMesh2.current.material, overlayMesh3.current.material],
+          {
+            opacity: 0,
+            duration: 0.2,
+            onUpdate: () => {
+              if (overlayMesh2.current && overlayMesh3.current) {
+                if (overlayMesh2.current.material.opacity <= 0.05) {
+                  overlayMesh2.current.visible = false;
+                  overlayMesh3.current.visible = false;
+                }
+              }
+            },
+          }
+        );
+      };
+
       canvas.addEventListener("mousemove", onMouseMove);
+      canvas.addEventListener("mouseleave", onMouseLeave);
 
       // クリーンアップ
       return () => {
         canvas.removeEventListener("mousemove", onMouseMove);
+        canvas.removeEventListener("mouseleave", onMouseLeave);
       };
     }
 
