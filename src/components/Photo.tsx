@@ -44,9 +44,9 @@ const Photos: React.FC = () => {
       {
         name: "Guilty",
         photos: [
-          "/photo/Guilty1.jPG",
+          "/photo/Guilty1.jpg",
           "/photo/Guilty2.jpg",
-          "/photo/Guilty3.jPG",
+          "/photo/Guilty3.jpg",
         ],
       },
       {
@@ -54,19 +54,19 @@ const Photos: React.FC = () => {
         photos: [
           "/photo/IWonder1.jpg",
           "/photo/IWonder2.jpg",
-          "/photo/IWonder3.jPG",
+          "/photo/IWonder3.jpg",
         ],
       },
       {
         name: "GENERATIONS",
-        photos: ["/photo/GENE1.jPG", "/photo/GENE2.jPG", "/photo/GENE3.jPG"],
+        photos: ["/photo/GENE1.jpg", "/photo/GENE2.jpg", "/photo/GENE3.jpg"],
       },
       {
         name: "DLEAGUE",
         photos: [
-          "/photo/DLEAGUE1.jPG",
-          "/photo/DLEAGUE2.jPG",
-          "/photo/DLEAGUE3.jPG",
+          "/photo/DLEAGUE1.jpg",
+          "/photo/DLEAGUE2.jpg",
+          "/photo/DLEAGUE3.jpg",
         ],
       },
     ];
