@@ -6,7 +6,7 @@ export default function About() {
     <Layout>
       <div className="flex flex-col items-center h-screen py-10 bg-slate-300">
         <Header />
-        <h1 className="text-4xl font-bold">About</h1>
+        <h1 className="text-4xl font-bold text-black">About</h1>
       </div>
     </Layout>
   );

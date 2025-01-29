@@ -58,7 +58,7 @@ export default function Home() {
           animate="visible"
           className="absolute top-1/3 left-5 md:left-10 flex flex-col space-y-6"
         >
-          {["Works", "About", "Contact"].map((text, index) => (
+          {["About", "Works", "Contact"].map((text, index) => (
             <motion.div
               key={text}
               custom={2.5 + index * 0.2}

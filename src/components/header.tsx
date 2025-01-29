@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter(); // ルーターを取得
+
+  const handleHomeClick = () => {
+    router.push("/"); // ルートの `page.tsx` に遷移
+    setIsOpen(false); // メニューを閉じる
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -34,7 +41,13 @@ export default function Navbar() {
           className="absolute top-full right-5 mt-2 w-48 bg-black shadow-lg rounded-md overflow-hidden"
         >
           <nav className="flex flex-col text-white text-lg">
-            {["Home", "About", "Contact", "Works"].map((text) => (
+            <button
+              className="px-5 py-3 text-left hover:bg-gray-600 transition-colors"
+              onClick={handleHomeClick}
+            >
+              Home
+            </button>
+            {["About", "Works", "Contact"].map((text) => (
               <Link
                 key={text}
                 href={`/${text.toLowerCase()}`}
