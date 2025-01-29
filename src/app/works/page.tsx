@@ -5,7 +5,7 @@ import backScreen from "@/components/bg";
 import { useEffect, useRef } from "react";
 import Header from "@/components/header";
 import Layout from "@/components/layout";
-import Photos from "@/components/photo";
+import Photos from "@/components/Photo";
 
 export default function Works() {
   return (
