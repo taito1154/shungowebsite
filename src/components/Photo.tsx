@@ -152,9 +152,16 @@ const Photos: React.FC = () => {
                 duration: 0.2,
                 onUpdate: () => {
                   if (overlayMesh2.current && overlayMesh3.current) {
-                    if (overlayMesh2.current.material.opacity <= 0.05) {
-                      overlayMesh2.current.visible = false;
-                      overlayMesh3.current.visible = false;
+                    if (
+                      overlayMesh2.current.material instanceof
+                        THREE.MeshBasicMaterial &&
+                      overlayMesh3.current.material instanceof
+                        THREE.MeshBasicMaterial
+                    ) {
+                      if (overlayMesh2.current.material.opacity <= 0.05) {
+                        overlayMesh2.current.visible = false;
+                        overlayMesh3.current.visible = false;
+                      }
                     }
                   }
                 },
@@ -179,9 +186,16 @@ const Photos: React.FC = () => {
             duration: 0.2,
             onUpdate: () => {
               if (overlayMesh2.current && overlayMesh3.current) {
-                if (overlayMesh2.current.material.opacity <= 0.05) {
-                  overlayMesh2.current.visible = false;
-                  overlayMesh3.current.visible = false;
+                if (
+                  overlayMesh2.current.material instanceof
+                    THREE.MeshBasicMaterial &&
+                  overlayMesh3.current.material instanceof
+                    THREE.MeshBasicMaterial
+                ) {
+                  if (overlayMesh2.current.material.opacity <= 0.05) {
+                    overlayMesh2.current.visible = false;
+                    overlayMesh3.current.visible = false;
+                  }
                 }
               }
             },
