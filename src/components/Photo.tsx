@@ -1,11 +1,17 @@
 // components/Photo.tsx
 "use client"; // クライアントコンポーネントとして指定
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 
-const Photos: React.FC = () => {
+type PhotosProps = {
+  setTitle: (name: string) => void;
+  setGenre: (genre: string) => void;
+  setArtist: (artist: string) => void;
+};
+
+const Photos: React.FC<PhotosProps> = ({ setTitle, setGenre, setArtist }) => {
   // Hooksは関数コンポーネントのトップレベルで呼び出す
   const mainMesh = useRef<THREE.Mesh | null>(null);
   const overlayMesh2 = useRef<THREE.Mesh | null>(null);
@@ -43,6 +49,9 @@ const Photos: React.FC = () => {
     const photoSets = [
       {
         name: "Guilty",
+        title: "Work",
+        genre: "Coreography",
+        Artist: "BE:FIRST",
         photos: [
           "/photo/Guilty1.JPG",
           "/photo/Guilty2.jpg",
@@ -51,6 +60,9 @@ const Photos: React.FC = () => {
       },
       {
         name: "IWonder",
+        title: "Work",
+        genre: "Coreography",
+        Artist: "Daice",
         photos: [
           "/photo/IWonder1.jpg",
           "/photo/IWonder2.jpg",
@@ -59,10 +71,16 @@ const Photos: React.FC = () => {
       },
       {
         name: "GENERATIONS",
+        title: "Work",
+        genre: "Back Dancer",
+        Artist: "GENERATIONS",
         photos: ["/photo/GENE1.jpg", "/photo/GENE2.jpg", "/photo/GENE3.jpg"],
       },
       {
         name: "DLEAGUE",
+        title: "Work",
+        genre: " Team Member",
+        Artist: "AVEX Royal Brats",
         photos: [
           "/photo/DLEAGUE1.jpg",
           "/photo/DLEAGUE2.JPG",
@@ -289,6 +307,10 @@ const Photos: React.FC = () => {
                 duration: 0.3,
               }
             );
+            // ✅ スクロール時に `title`・`genre`・`artist` も更新
+            setTitle(photoSets[setIndex].name);
+            setGenre(photoSets[setIndex].genre);
+            setArtist(photoSets[setIndex].Artist);
           },
         }
       );
