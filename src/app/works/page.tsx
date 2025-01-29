@@ -5,7 +5,7 @@ import backScreen from "@/components/bg";
 import { useEffect, useRef } from "react";
 import Header from "@/components/header";
 import Layout from "@/components/layout";
-import Photo from "@/components/Photo";
+import Photo from "@/components/photo";
 
 export default function Works() {
   // const cleanupShaderRef = useRef<(() => void) | null>(null);
