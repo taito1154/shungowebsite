@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 
-const Photo: React.FC = () => {
+const Photos: React.FC = () => {
   // Hooksは関数コンポーネントのトップレベルで呼び出す
   const mainMesh = useRef<THREE.Mesh | null>(null);
   const overlayMesh2 = useRef<THREE.Mesh | null>(null);
@@ -350,4 +350,4 @@ const Photo: React.FC = () => {
   return null; // このコンポーネントはJSXを返さないため
 };
 
-export default Photo;
+export default Photos;
