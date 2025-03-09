@@ -10,126 +10,122 @@ import Photos from "@/components/Photo";
 import Simplephotos from "@/components/simplephotos";
 import gsap from "gsap"; // GSAPをインポート
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Works() {
   useEffect(() => {
-    let tl = gsap.timeline({
-      snap: {
-        snapTo: "labels", // snap to the closest label in the timeline
-        duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        delay: 0.3, // wait 0.2 seconds from the last scroll event before doing the snapping
-        ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
-      },
-      // timeline全体の設定
+    // Lenis の初期化
+    const lenis = new Lenis({
+      duration: 1.2, // スクロールの慣性時間（秒）
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // カスタムイージング
+      smoothWheel: true, // マウスホイールでのスムーズスクロールを有効化
     });
 
-    const photos = gsap.utils.toArray(".photo");
+    // Lenis の RAF ループ
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-    gsap.to(photos, {
-      xPercent: -1 * (photos.length - 1),
-      // opacity: 1,
+    // ScrollTrigger と Lenis を連携するための scrollerProxy 設定
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (arguments.length) {
+          lenis.scrollTo(value ?? 0);
+        }
+        return lenis.scroll || 0;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+    ScrollTrigger.refresh();
+
+    gsap.to(".photo1 img", {
+      opacity: 1,
+      x: 100,
       scrollTrigger: {
-        start: "start center",
-        end: "bottom center",
-        trigger: ".photo-container",
+        trigger: ".photo1",
+        start: "top bottom",
+        end: "center center",
         markers: true,
-        toggleActions: "play reverse play reverse",
-        snap: 1 / (photos.length - 1),
+        scrub: true,
       },
     });
-
-    gsap.to(".photo2", {
+    gsap.to(".description1", {
       opacity: 1,
       scrollTrigger: {
-        start: "start center",
-        end: "bottom center",
+        trigger: ".photo1",
+        start: "top bottom",
+        end: "center center",
+        markers: true,
+        scrub: true,
+      },
+    });
+
+    gsap.fromTo(
+      ".photo2 img",
+      { opacity: 0, x: 200 },
+      {
+        opacity: 1,
+        x: -100,
+        scrollTrigger: {
+          trigger: ".photo2",
+          start: "top bottom", // 要素の上端がビューポートの下端に来たら開始
+          end: "center center", // 要素の中央がビューポートの中央に来たら終了
+          markers: true,
+          scrub: true,
+        },
+      }
+    );
+    gsap.to(".description2", {
+      opacity: 1,
+      scrollTrigger: {
         trigger: ".photo2",
+        start: "top bottom",
+        end: "center center",
         markers: true,
-        toggleActions: "play reverse play reverse",
-        snap: 0.5,
+        scrub: true,
       },
     });
-
-    gsap.to(".photo3", {
+    gsap.to(".photo3 img", {
+      opacity: 1,
+      x: 100,
+      scrollTrigger: {
+        trigger: ".photo3",
+        start: "top bottom",
+        end: "center center",
+        markers: true,
+        scrub: true,
+      },
+    });
+    gsap.to(".description3", {
       opacity: 1,
       scrollTrigger: {
-        start: "start center",
-        end: "bottom center",
         trigger: ".photo3",
+        start: "top bottom",
+        end: "center center",
         markers: true,
-        toggleActions: "play reverse play reverse",
-        snap: 0.5,
+        scrub: true,
       },
     });
-
-    // ScrollTrigger.create({
-    //   trigger: ".photo1", // 1つ目の画像をトリガーに
-    //   start: "center center", // トリガー位置（画像の上部がビューポートの中心に来たら）
-    //   end: "bottom top", // 画像の下部がビューポートの上部に来たら
-    //   scrub: 1, // スクロールに合わせてアニメーション
-    //   pin: true, // アニメーション中、画像をピン留めする
-    // });
-    // tl.addLabel("faidin").from(".photo1", {
-    //   scale: 0,
-    //   rotation: 45,
-    //   autoAlpha: 0,
-    // });
-    // .addLabel("faidout")
-    // .to(".photo1", { scale: 0, rotation: 45, opacity: 0 })
-    // .addLabel("end");
-    // ScrollTrigger.create({
-    //   trigger: ".photo2", // 1つ目の画像をトリガーに
-    //   start: "center center", // トリガー位置（画像の上部がビューポートの中心に来たら）
-    //   end: "bottom top", // 画像の下部がビューポートの上部に来たら
-    //   scrub: 1, // スクロールに合わせてアニメーション
-    //   pin: true, // アニメーション中、画像をピン留めする
-    // }),
-    //   tl
-    //     .addLabel("photo2faidin")
-    //     .from(".photo2", { scale: 0, rotation: 45, autoAlpha: 0 })
-    //     .addLabel("faidout")
-    //     .to(".photo2", { scale: 0, rotation: 45, opacity: 0 })
-    //     .addLabel("end");
-    // ScrollTrigger.create({
-    //   trigger: ".photo3", // 1つ目の画像をトリガーに
-    //   start: "center center", // トリガー位置（画像の上部がビューポートの中心に来たら）
-    //   end: "bottom top", // 画像の下部がビューポートの上部に来たら
-    //   scrub: 1, // スクロールに合わせてアニメーション
-    //   pin: true, // アニメーション中、画像をピン留めする
-    // }),
-    //   tl
-    //     .addLabel("photo3faidin")
-    //     .from(".photo3", { scale: 0, rotation: 45, autoAlpha: 0 })
-    //     .addLabel("faidout")
-    //     .to(".photo3", { scale: 0, rotation: 45, opacity: 0 })
-    //     .addLabel("end");
-
-    // .to("photo1")
-
-    // tl.fromTo(
-    //   ".photo1",
-    //   { opacity: 0, scale: 0.5 },
-    //   { opacity: 1, scale: 1, duration: 1 } // 1つ目の画像（フェードイン + 拡大）
-    // ).fromTo(
-    //   ".photo2",
-    //   { opacity: 0, scale: 0.5, rotation: 45 },
-    //   { opacity: 1, scale: 1, rotation: 0, duration: 1 } // 2つ目の画像（フェードイン + 回転）
-    // );
-
-    // ここで overscroll-behavior を制御したい場合
-    // document.body.style.overscrollBehavior = "none";
-    // document.documentElement.style.scrollBehavior = "smooth"; // スムーズスクロールを設定
   }, []);
 
   return (
     <Layout>
-      <div className="flex flex-col items-center py-10 bg-slate-300 photo-container">
-        <Header />
-        <h1 className="text-sm sm:text-3xl md:text-5xl lg:text-7xl font-bold text-black ml-3 md:ml-10 mt-2 md:mt-5 self-start">
+      <div className="relative bg-slate-300 pb-96 photo-containers">
+        <h1 className="text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center py-80">
           Works
         </h1>
+
         <Simplephotos />
       </div>
     </Layout>

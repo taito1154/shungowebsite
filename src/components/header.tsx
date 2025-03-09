@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* ヘッダーの黒背景を修正 */}
-      <div className="w-full bg-transparent shadow-md flex items-center justify-between p-3 ">
+      <div className="w-full shadow-md flex items-center justify-between p-3">
         {/* 左側：ロゴ */}
         <Link href="/" className="text-2xl font-bold text-white">
           Shungo Hirata
