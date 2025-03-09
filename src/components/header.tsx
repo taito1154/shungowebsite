@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* ヘッダーの黒背景を修正 */}
-      <div className="w-full bg-black shadow-md flex items-center justify-between p-3 ">
+      <div className="w-full bg-transparent shadow-md flex items-center justify-between p-3 ">
         {/* 左側：ロゴ */}
         <Link href="/" className="text-2xl font-bold text-white">
           Shungo Hirata
@@ -38,7 +38,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute top-full right-5 mt-2 w-48 bg-black shadow-lg rounded-md overflow-hidden"
+          className="absolute top-full right-5 mt-2 w-48 bg-transparent shadow-lg rounded-md overflow-hidden"
         >
           <nav className="flex flex-col text-white text-lg">
             <button
