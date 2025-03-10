@@ -50,7 +50,7 @@ export default function Works() {
     });
     ScrollTrigger.refresh();
 
-    const isMobile = window.innerWidth <= 767;
+    const isMobile = window.innerWidth <= 1024;
     const xValue = isMobile ? 0 : 100;
     const xStart = isMobile ? 0 : 200;
 
@@ -133,7 +133,7 @@ export default function Works() {
     <Layout>
       <Background />
       <div className="relative bg-transparent pb-96 photo-containers  overflow-x-hidden">
-        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-white text-center sm:py-80 py-[400px]">
+        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-white text-center md:py-[500px] py-[400px] lg:py-80 ipad-pro:py-[550px] iphoneSE:py-60">
           Works
         </h1>
 

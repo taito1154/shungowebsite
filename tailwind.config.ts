@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        "ipad-pro": { raw: "(width: 1024px) and (height: 1366px)" },
+        iphoneSE: { raw: "(width: 375px) and (height: 667px)" },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

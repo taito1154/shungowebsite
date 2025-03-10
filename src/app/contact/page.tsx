@@ -9,7 +9,10 @@ export default function Contact() {
   return (
     <Layout>
       <Background />
-      <div className="title-font flex flex-col items-center min-h-screen pt-36 md:pt-40  bg-transparent px-4">
+      <div
+        className="title-font flex flex-col items-center min-h-screen 
+      pt-52 md:pt-52 max-w-[1023px]:pt-52 lg:pt-24 bg-transparent px-4 ipad-pro:pt-52"
+      >
         <Header />
         <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white pb-6">
           Contact
