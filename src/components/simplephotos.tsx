@@ -19,20 +19,20 @@ const Photos = () => {
           />
         </div>
         <div className="flex flex-col ml-0 sm:ml-[240px]">
-          <p className="description1 text-3xl sm:text-8xl text-left opacity-0 text-black">
+          <p className="description1 text-3xl sm:text-8xl text-left opacity-0 text-white">
             Guilty
           </p>
-          <p className="description1 text-2xl sm:text-6xl text-left opacity-0 text-black">
+          <p className="description1 text-2xl sm:text-6xl text-left opacity-0 text-white">
             BE:FIRST
           </p>
         </div>
       </div>
       <div className="photo photo2 flex flex-col-reverse sm:flex-row items-center gap-4 sm:gap-12 w-full  bg-transparent ">
         <div className="flex flex-col ml-0 sm:ml-[240px]">
-          <p className="description2 text-3xl sm:text-8xl  text-left opacity-0 text-black w-full">
+          <p className="description2 text-3xl sm:text-8xl  text-left opacity-0 text-white w-full">
             DLEAGUE
           </p>
-          <p className="description2 text-2xl sm:text-6xl text-left opacity-0 text-black w-full ">
+          <p className="description2 text-2xl sm:text-6xl text-left opacity-0 text-white w-full ">
             Avex Royal Brats
           </p>
         </div>
@@ -66,10 +66,10 @@ const Photos = () => {
         </div>
         {/* 説明文をラップ */}
         <div className="flex flex-col ml-0 sm:ml-[240px]">
-          <p className="description3 text-3xl sm:text-8xl text-left opacity-0 text-black">
+          <p className="description3 text-3xl sm:text-8xl text-left opacity-0 text-white">
             IWONDER
           </p>
-          <p className="description3 text-2xl sm:text-6xl text-left opacity-0 text-black">
+          <p className="description3 text-2xl sm:text-6xl text-left opacity-0 text-white">
             Daice
           </p>
         </div>

@@ -9,22 +9,26 @@ export default function Contact() {
   return (
     <Layout>
       <Background />
-      <div className="title-font flex flex-col items-center h-screen pt-20 bg-transparent">
+      <div className="title-font flex flex-col items-center min-h-screen pt-36 md:pt-40  bg-transparent px-4">
         <Header />
-        <h1 className="text-8xl font-bold text-black pb-10">Contact</h1>
-        <p className="text-4xl  text-gray-800 mb-4">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white pb-6">
+          Contact
+        </h1>
+        <p className="text-1xl sm:text-3xl md:text-5xl text-white text-center mb-2">
           振付、レッスン、バックダンサー等の
         </p>
-        <p className="text-4xl  text-gray-800 mb-4">
-          ご依頼は下記SNSのDMにて承っております。お気軽にご連絡下さい。
+        <p className="text-1xl sm:text-3xl md:text-5xl text-white text-center mb-6">
+          ご依頼は下記SNSのDMにて承っております。
         </p>
-        <div className="w-full max-w-3xl p-20 bg-white rounded-xl shadow-2xl flex flex-col items-center space-y-8">
-          <div className="flex space-x-12">
+
+        {/* 白いカード */}
+        <div className="w-full max-w-lg sm:max-w-2xl md:max-w-3xl p-10 sm:p-16 md:p-20 bg-white rounded-xl shadow-2xl flex flex-col items-center space-y-8">
+          <div className="flex space-x-8 sm:space-x-12">
             <a
               href="https://www.instagram.com/shungo.dnc/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[200px] text-pink-500 hover:text-pink-700 transition-colors"
+              className="text-[100px] sm:text-[150px] md:text-[200px] text-pink-500 hover:text-pink-700 transition-colors"
             >
               <FaInstagram />
             </a>
@@ -32,7 +36,7 @@ export default function Contact() {
               href="https://x.com/shungo_dnc"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[200px] text-black hover:text-gray-600 transition-colors"
+              className="text-[100px] sm:text-[150px] md:text-[200px] text-black hover:text-gray-600 transition-colors"
             >
               <FaXTwitter />
             </a>

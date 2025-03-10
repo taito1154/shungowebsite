@@ -133,7 +133,7 @@ export default function Works() {
     <Layout>
       <Background />
       <div className="relative bg-transparent pb-96 photo-containers  overflow-x-hidden">
-        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center sm:py-80 py-[400px]">
+        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-white text-center sm:py-80 py-[400px]">
           Works
         </h1>
 
