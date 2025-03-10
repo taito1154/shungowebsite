@@ -20,9 +20,7 @@ export default function Navbar() {
         {/* 左側：ロゴ */}
         <Link
           href="/"
-          className={`title-font text-xl sm:text-2xl md:text-3xl font-bold text-white ${
-            isOpen ? "hidden" : ""
-          }`}
+          className={`title-font text-xl sm:text-2xl md:text-3xl font-bold text-white`}
         >
           Shungo Hirata
         </Link>

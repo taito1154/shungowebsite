@@ -49,9 +49,12 @@ export default function Works() {
     });
     ScrollTrigger.refresh();
 
+    const isMobile = window.innerWidth <= 767;
+    const xValue = isMobile ? 0 : 100;
+
     gsap.to(".photo1 img", {
       opacity: 1,
-      x: 100,
+      x: xValue,
       scrollTrigger: {
         trigger: ".photo1",
         start: "top bottom",
@@ -76,7 +79,7 @@ export default function Works() {
       { opacity: 0, x: 200 },
       {
         opacity: 1,
-        x: 100,
+        x: xValue,
         scrollTrigger: {
           trigger: ".photo2",
           start: "top bottom", // 要素の上端がビューポートの下端に来たら開始
@@ -98,7 +101,7 @@ export default function Works() {
     });
     gsap.to(".photo3 img", {
       opacity: 1,
-      x: 100,
+      x: xValue,
       scrollTrigger: {
         trigger: ".photo3",
         start: "top bottom",
@@ -126,8 +129,8 @@ export default function Works() {
 
   return (
     <Layout>
-      <div className="relative bg-slate-300 pb-96 photo-containers">
-        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center py-80">
+      <div className="relative bg-slate-300 pb-96 photo-containers  overflow-x-hidden">
+        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center sm:py-96 py-80">
           Works
         </h1>
 
