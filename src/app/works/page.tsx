@@ -51,6 +51,7 @@ export default function Works() {
 
     const isMobile = window.innerWidth <= 767;
     const xValue = isMobile ? 0 : 100;
+    const xStart = isMobile ? 0 : 200;
 
     gsap.to(".photo1 img", {
       opacity: 1,
@@ -76,7 +77,7 @@ export default function Works() {
 
     gsap.fromTo(
       ".photo2 img",
-      { opacity: 0, x: 200 },
+      { opacity: 0, x: xStart },
       {
         opacity: 1,
         x: xValue,
@@ -130,7 +131,7 @@ export default function Works() {
   return (
     <Layout>
       <div className="relative bg-slate-300 pb-96 photo-containers  overflow-x-hidden">
-        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center sm:py-96 py-80">
+        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center sm:py-80 py-[400px]">
           Works
         </h1>
 

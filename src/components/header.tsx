@@ -1,13 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter(); // ルーターを取得
+  const pathname = usePathname();
+
+  // 共通のナビゲーションクリック処理
+  const handleNavClick = (href: string) => {
+    if (pathname === href) {
+      router.refresh(); // 同じページならリロード
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push(href);
+    }
+    setIsOpen(false);
+  };
 
   const handleHomeClick = () => {
     router.push("/"); // ルートの `page.tsx` に遷移
@@ -27,24 +39,24 @@ export default function Navbar() {
 
         {/* PC用ナビゲーションメニュー */}
         <nav className="hidden md:flex gap-10 text-white text-lg">
-          <Link
-            href="/about"
+          <button
+            onClick={() => handleNavClick("/about")}
             className="title-font md:text-2xl lg:text-3xl hover:text-gray-400 transition-colors"
           >
             About
-          </Link>
-          <Link
-            href="/works"
+          </button>
+          <button
+            onClick={() => handleNavClick("/works")}
             className="title-font hover:text-gray-400 transition-colors md:text-2xl lg:text-3xl"
           >
             Works
-          </Link>
-          <Link
-            href="/contact"
+          </button>
+          <button
+            onClick={() => handleNavClick("/contact")}
             className="title-font hover:text-gray-400 transition-colors md:text-2xl lg:text-3xl"
           >
             Contact
-          </Link>
+          </button>
         </nav>
         {/* スマホ用ナビゲーションメニュー */}
         {!isOpen && (
@@ -82,14 +94,15 @@ export default function Navbar() {
               Home
             </button>
             {["About", "Works", "Contact"].map((text) => (
-              <Link
+              <button
                 key={text}
-                href={`/${text.toLowerCase()}`}
-                className="px-5 py-3 hover:bg-gray-600 transition-colors"
-                onClick={() => setIsOpen(false)}
+                // href={`/${text.toLowerCase()}`}
+                className="px-5 py-3 hover:bg-gray-600 transition-colors text-left"
+                // onClick={() => setIsOpen(false)}
+                onClick={() => handleNavClick(`/${text.toLowerCase()}`)}
               >
                 {text}
-              </Link>
+              </button>
             ))}
           </nav>
         </motion.div>

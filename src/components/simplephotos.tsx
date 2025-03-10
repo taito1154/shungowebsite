@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Photos = () => {
   return (
-    <div className="flex flex-col space-y-80 w-full items-center photo-container">
+    <div className="flex flex-col space-y-36 sm:space-y-80 w-full items-center photo-container">
       <div className="photo photo1 flex flex-col sm:flex-row items-center gap-4 sm:gap-12 w-full border-b-4 border-gray-300">
         <div className="relative w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]">
           <Image
@@ -27,7 +27,7 @@ const Photos = () => {
           </p>
         </div>
       </div>
-      <div className="photo photo2 flex flex-col sm:flex-row items-center gap-4 sm:gap-12 w-full  border-b-4 border-gray-300 ">
+      <div className="photo photo2 flex flex-col-reverse sm:flex-row items-center gap-4 sm:gap-12 w-full  border-b-4 border-gray-300 ">
         <div className="flex flex-col ml-0 sm:ml-[240px]">
           <p className="description2 text-3xl sm:text-8xl  text-left opacity-0 text-black w-full">
             DLEAGUE
