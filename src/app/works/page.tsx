@@ -11,6 +11,7 @@ import Simplephotos from "@/components/simplephotos";
 import gsap from "gsap"; // GSAPをインポート
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
+import Background from "@/components/background";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,7 +131,8 @@ export default function Works() {
 
   return (
     <Layout>
-      <div className="relative bg-slate-300 pb-96 photo-containers  overflow-x-hidden">
+      <Background />
+      <div className="relative bg-transparent pb-96 photo-containers  overflow-x-hidden">
         <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center sm:py-80 py-[400px]">
           Works
         </h1>
