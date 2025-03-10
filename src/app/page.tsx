@@ -47,7 +47,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
         transition={{ delay: 2 }}
-        className="text-4xl md:text-8xl font-extrabold mb-12"
+        className="title-font text-4xl md:text-8xl font-extrabold mb-12"
       >
         Shungo Hirata
       </motion.h1>
@@ -68,7 +68,7 @@ export default function Home() {
             >
               <Link
                 href={`/${text.toLowerCase()}`}
-                className="text-2xl md:text-7xl font-semibold hover:underline"
+                className="title-font text-2xl md:text-7xl font-semibold hover:underline"
               >
                 {text}
               </Link>

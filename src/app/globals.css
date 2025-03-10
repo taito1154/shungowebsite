@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +7,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@layer base {
+  .title-font,
+  .description1,
+  .description2,
+  .description3 {
+    font-family: "Playfair Display", serif;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

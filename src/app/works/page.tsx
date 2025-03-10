@@ -15,8 +15,8 @@ import Lenis from "@studio-freight/lenis";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Works() {
+  // Lenis の初期化
   useEffect(() => {
-    // Lenis の初期化
     const lenis = new Lenis({
       duration: 1.2, // スクロールの慣性時間（秒）
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // カスタムイージング
@@ -76,7 +76,7 @@ export default function Works() {
       { opacity: 0, x: 200 },
       {
         opacity: 1,
-        x: -100,
+        x: 100,
         scrollTrigger: {
           trigger: ".photo2",
           start: "top bottom", // 要素の上端がビューポートの下端に来たら開始
@@ -117,12 +117,17 @@ export default function Works() {
         scrub: true,
       },
     });
-  }, []);
+    // ✅ ページ遷移時に ScrollTrigger をリセット
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.refresh();
+    };
+  }, []); // ✅ `useEffect` の依存関係を修正
 
   return (
     <Layout>
       <div className="relative bg-slate-300 pb-96 photo-containers">
-        <h1 className="text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center py-80">
+        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-black text-center py-80">
           Works
         </h1>
 
