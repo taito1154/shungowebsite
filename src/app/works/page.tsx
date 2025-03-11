@@ -52,7 +52,8 @@ export default function Works() {
 
     const isMobile = window.innerWidth <= 1024;
     const xValue = isMobile ? 0 : 100;
-    const xStart = isMobile ? 0 : 200;
+    const xEnd = isMobile ? 0 : 200;
+    const xStart = isMobile ? 0 : 300;
 
     gsap.to(".photo1 img", {
       opacity: 1,
@@ -81,7 +82,7 @@ export default function Works() {
       { opacity: 0, x: xStart },
       {
         opacity: 1,
-        x: xValue,
+        x: xEnd,
         scrollTrigger: {
           trigger: ".photo2",
           start: "top bottom", // 要素の上端がビューポートの下端に来たら開始
