@@ -2,30 +2,32 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const [loaded, setLoaded] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [showTransition, setShowTransition] = useState(true);
   const [mainVisible, setMainVisible] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsDark(true), 2000);
-    // オーバーレイは10秒後に消す（fadeOut完了まで待つ）
-    const timeout2 = setTimeout(() => setShowTransition(false), 10000);
-    // Transition開始から1秒後にメインコンテンツを表示する
-    const mainTimeout = setTimeout(() => setMainVisible(true), 1000);
+    const timeoutDark = setTimeout(() => setIsDark(true), 8000);
+    const timeoutTransition = setTimeout(() => setShowTransition(false), 5500);
+    const timeoutMain = setTimeout(() => setMainVisible(true), 1000);
+    // ページ読み込み後、1秒後に motion.h1 を生成する
+    const timeoutLoaded = setTimeout(() => setLoaded(true), 1);
+
     return () => {
-      clearTimeout(timeout);
-      clearTimeout(timeout2);
-      clearTimeout(mainTimeout);
+      clearTimeout(timeoutDark);
+      clearTimeout(timeoutTransition);
+      clearTimeout(timeoutMain);
+      clearTimeout(timeoutLoaded);
     };
   }, []);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 6 } },
   };
 
   const slideInLeft = {
@@ -40,7 +42,7 @@ export default function Home() {
   return (
     <>
       {showTransition && (
-        <div className="typewriter-wrapper">
+        <div className="typewriter-wrapper bg-slate-500">
           <h1
             className="typewriter-text text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
             style={{ opacity: 0 }}
@@ -54,7 +56,6 @@ export default function Home() {
               left: 0;
               width: 100vw;
               height: 100vh;
-              background: black;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -64,7 +65,7 @@ export default function Home() {
             .typewriter-text {
               display: inline-block;
               line-height: 1.5;
-              color: white;
+              color: black;
               overflow: hidden;
               white-space: nowrap;
               border-right: 2px solid white;
@@ -117,39 +118,44 @@ export default function Home() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover -z-20"
           initial={{ opacity: 1 }}
-          animate={{ opacity: isDark ? 0.5 : 1 }}
+          animate={{ opacity: isDark ? 0.3 : 1 }}
           transition={{ duration: 1 }}
         >
           <source src="/video/Shungo.mp4" type="video/mp4" />
         </motion.video>
-        <motion.h1
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 2 }}
-          className="title-font text-4xl md:text-8xl font-extrabold mb-12"
-        >
-          Shungo Hirata
-        </motion.h1>
-
-        <div className="absolute top-1/3 left-5 md:left-10 flex flex-col space-y-6">
-          {["About", "Works", "Contact"].map((text, index) => (
-            <motion.div
-              key={text}
-              custom={2.5 + index * 0.2}
-              variants={slideInLeft}
+        {/* loaded が true になった後に motion.h1 を新しく生成 */}
+        {loaded && (
+          <div className="absolute pointer-events-none">
+            <motion.h1
+              variants={fadeInUp}
               initial="hidden"
               animate="visible"
+              className="title-font text-4xl md:text-8xl font-extrabold mb-12"
+              transition={{ duration: 1 }}
             >
-              <Link
-                href={`/${text.toLowerCase()}`}
-                className="title-font text-2xl md:text-7xl font-semibold hover:underline"
-              >
-                {text}
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+              Shungo Hirata
+            </motion.h1>
+          </div>
+        )}
+      </div>
+
+      <div className="absolute top-1/3 left-5 md:left-10 flex flex-col space-y-6">
+        {["About", "Works", "Contact"].map((text, index) => (
+          <motion.div
+            key={text}
+            custom={7 + index * 0.4}
+            variants={slideInLeft}
+            initial="hidden"
+            animate="visible"
+          >
+            <Link
+              href={`/${text.toLowerCase()}`}
+              className="title-font text-2xl md:text-7xl font-semibold hover:underline"
+            >
+              {text}
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </>
   );
