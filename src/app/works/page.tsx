@@ -54,7 +54,6 @@ export default function Works() {
     const xValue = isMobile ? 0 : 100;
     const xEnd = isMobile ? 0 : 200;
     const xStart = isMobile ? 0 : 300;
-
     gsap.to(".photo1 img", {
       opacity: 1,
       x: xValue,
