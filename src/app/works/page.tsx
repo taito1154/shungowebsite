@@ -63,6 +63,7 @@ export default function Works() {
         end: "center center",
         markers: true,
         scrub: true,
+        // toggleActions: "play reverse play reverse", // 通常は scrub ありの場合は不要
       },
     });
     gsap.to(".description1", {
