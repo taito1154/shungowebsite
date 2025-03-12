@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { TransitionLink } from "@/components/transitionlink";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,24 +40,24 @@ export default function Navbar() {
 
         {/* PC用ナビゲーションメニュー */}
         <nav className="hidden md:flex gap-10 text-white text-lg">
-          <button
-            onClick={() => handleNavClick("/about")}
+          <TransitionLink
+            href={"/about"}
             className="title-font md:text-2xl lg:text-3xl hover:text-gray-400 transition-colors"
           >
             About
-          </button>
-          <button
-            onClick={() => handleNavClick("/works")}
+          </TransitionLink>
+          <TransitionLink
+            href={"/works"}
             className="title-font hover:text-gray-400 transition-colors md:text-2xl lg:text-3xl"
           >
             Works
-          </button>
-          <button
-            onClick={() => handleNavClick("/contact")}
+          </TransitionLink>
+          <TransitionLink
+            href={"/contact"}
             className="title-font hover:text-gray-400 transition-colors md:text-2xl lg:text-3xl"
           >
             Contact
-          </button>
+          </TransitionLink>
         </nav>
         {/* スマホ用ナビゲーションメニュー */}
         {!isOpen && (
@@ -94,15 +95,14 @@ export default function Navbar() {
               Home
             </button>
             {["About", "Works", "Contact"].map((text) => (
-              <button
+              <TransitionLink
                 key={text}
-                // href={`/${text.toLowerCase()}`}
+                href={`/${text.toLowerCase()}`}
                 className="px-5 py-3 hover:bg-gray-600 transition-colors text-left"
                 // onClick={() => setIsOpen(false)}
-                onClick={() => handleNavClick(`/${text.toLowerCase()}`)}
               >
                 {text}
-              </button>
+              </TransitionLink>
             ))}
           </nav>
         </motion.div>

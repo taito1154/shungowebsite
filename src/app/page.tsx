@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { TransitionLink } from "@/components/transitionlink";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [showTransition, setShowTransition] = useState(true);
   const [mainVisible, setMainVisible] = useState(false);
-
   useEffect(() => {
     const timeoutDark = setTimeout(() => setIsDark(true), 8000);
     const timeoutTransition = setTimeout(() => setShowTransition(false), 5500);
@@ -148,12 +148,12 @@ export default function Home() {
             initial="hidden"
             animate="visible"
           >
-            <Link
+            <TransitionLink
               href={`/${text.toLowerCase()}`}
               className="title-font text-2xl md:text-7xl font-semibold hover:underline"
             >
               {text}
-            </Link>
+            </TransitionLink>
           </motion.div>
         ))}
       </div>
