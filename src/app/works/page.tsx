@@ -4,7 +4,7 @@ import Image from "next/image";
 import backScreen from "@/components/bg";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
-import Header from "@/components/header";
+
 import Layout from "@/components/layout";
 import Photos from "@/components/Photo";
 import Simplephotos from "@/components/simplephotos";

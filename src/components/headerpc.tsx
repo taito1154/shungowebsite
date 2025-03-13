@@ -50,8 +50,12 @@ export default function Navbar({
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 ${className || ""}`}>
-      <div className="w-full flex items-center justify-between p-5 h-20">
+    <header
+      className={`hidden md:block fixed top-0 left-0 w-full z-50 ${
+        className || ""
+      }`}
+    >
+      <div className="w-full flex items-center justify-between p-5">
         {/* 左側：ロゴ */}
         <Link
           href="/"
