@@ -55,7 +55,7 @@ export default function Navbar({
         className || ""
       }`}
     >
-      <div className="w-full flex items-center justify-between p-5">
+      <div className="w-full flex items-center justify-between p-5 h-20">
         {/* 左側：ロゴ */}
         <Link
           href="/"

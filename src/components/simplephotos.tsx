@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TransitionLink } from "@/components/transitionlink";
+import guiltyImage from "@/public/photo/Guilty1.jpg";
 
 const Photos = () => {
   return (
@@ -9,7 +10,8 @@ const Photos = () => {
         <TransitionLink href="/works/Guilty" className="pointer-events-none">
           <div className=" relative w-[300px] sm:w-[500px] md:w-[400px] lg:w-[500px] h-[300px] sm:h-[500px] md:h-[400px] lg:h-[500px] transition-transform duration-500 hover:scale-105 pointer-events-none">
             <Image
-              src="/photo/Guilty1.jpg" // 画像のパスを指定
+              src="/photo/Guilty1.JPG" // 画像のパスを指定
+              // src={guiltyImage}
               alt="Photo1"
               fill
               className="
