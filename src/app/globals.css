@@ -31,6 +31,12 @@ body {
     font-family: "Playfair Display", serif;
   }
 }
+@font-face {
+  font-family: "GenShinGothic";
+  src: url("/fonts/GenShinGothic-P-Heavy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {

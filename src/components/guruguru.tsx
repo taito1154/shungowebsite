@@ -44,7 +44,7 @@ export default function RotatingText({
             <path id="circlePath" d={pathD} />
           </defs>
           <text
-            fill="white"
+            fill="lightgray"
             fontSize="16"
             textAnchor="middle"
             textLength={circumference}

@@ -3,22 +3,22 @@ import Header from "@/components/header";
 import Layout from "@/components/layout";
 import RotatingText from "@/components/guruguru";
 import YouTubePlayer from "@/components/youtubeplayer";
+import BackScreenShader from "@/components/backscreenshader";
+import BackBackScreen from "@/components/tukaerukamohaikei";
 export default function Guilty() {
   return (
     <Layout>
       <div className="flex flex-col h-screen py-10 bg-slate-300">
+        <BackBackScreen />
+        <BackScreenShader />
+
         <Header />
-        <h1 className="ml-20 mt-5 title-font text-9xl font-bold text-black z-10">
+        <h1 className="font-genshin ml-20 mt-5 text-9xl font-bold text-white z-10 ">
           Guilty
         </h1>
-        <h2 className="ml-20 title-font text-6xl font-bold text-black z-10">
+        <h2 className="ml-20 title-font text-6xl font-bold text-white z-10">
           BE:FIRST
         </h2>
-        {/* <YouTubePlayer
-          videoId="GzWBhkSMFN8"
-          className="w-[600px] mx-auto z-10 "
-          thumbnailClassName=""
-        /> */}
         <div className="absolute inset-0 mt-64">
           <YouTubePlayer
             videoId="GzWBhkSMFN8"

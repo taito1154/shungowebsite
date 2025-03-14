@@ -16,6 +16,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        genshin: ['"GenShinGothic"', "sans-serif"],
+      },
     },
   },
   plugins: [],
