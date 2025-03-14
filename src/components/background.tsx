@@ -5,19 +5,19 @@ export default function FlowingBackground() {
     <>
       <div className="fixed inset-0 z-[-1] overflow-hidden bg-black">
         <div className="flowing-text-container">
-          <div className="title-font flowing-text flowing-text-1 text-gray-700 opacity-50 text-4xl sm:text-[112px] whitespace-nowrap">
+          <div className="title-font flowing-text flowing-text-1 text-gray-600 opacity-50 text-4xl sm:text-[112px] whitespace-nowrap">
             Fukuoka kara kita
           </div>
-          <div className="title-font flowing-text flowing-text-2 text-gray-700 opacity-50 text-3xl sm:text-[80px] whitespace-nowrap mt-[5rem]">
+          <div className="title-font flowing-text flowing-text-2 text-gray-600 opacity-50 text-3xl sm:text-[80px] whitespace-nowrap mt-[5rem]">
             Yaken ijittekuru
           </div>
-          <div className="title-font flowing-text flowing-text-3 text-gray-700 opacity-50 text-6xl sm:text-[70px] whitespace-nowrap mt-[7rem]">
+          <div className="title-font flowing-text flowing-text-3 text-gray-600 opacity-50 text-6xl sm:text-[70px] whitespace-nowrap mt-[7rem]">
             yeah!!
           </div>
-          <div className="title-font flowing-text flowing-text-4 text-gray-700 opacity-50 text-5xl sm:text-[100px] whitespace-nowrap mb-[8rem]">
+          <div className="title-font flowing-text flowing-text-4 text-gray-600 opacity-50 text-5xl sm:text-[100px] whitespace-nowrap mb-[8rem]">
             Chevrolet noritai
           </div>
-          <div className="title-font flowing-text flowing-text-5 text-gray-700 opacity-50 text-7xl sm:text-[120px] whitespace-nowrap ">
+          <div className="title-font flowing-text flowing-text-5 text-gray-600 opacity-50 text-7xl sm:text-[120px] whitespace-nowrap ">
             Brian is God
           </div>
         </div>

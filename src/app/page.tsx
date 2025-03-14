@@ -42,12 +42,12 @@ export default function Home() {
   return (
     <>
       {showTransition && (
-        <div className="typewriter-wrapper bg-slate-500">
+        <div className="typewriter-wrapper bg-slate-300">
           <h1
             className="typewriter-text text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
             style={{ opacity: 0 }}
           >
-            Shungo Hirata
+            Choreograper
           </h1>
           <style jsx>{`
             .typewriter-wrapper {
@@ -118,7 +118,7 @@ export default function Home() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover -z-20"
           initial={{ opacity: 1 }}
-          animate={{ opacity: isDark ? 0.3 : 1 }}
+          animate={{ opacity: isDark ? 0.5 : 1 }}
           transition={{ duration: 1 }}
         >
           <source src="/video/Shungo.mp4" type="video/mp4" />

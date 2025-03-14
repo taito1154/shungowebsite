@@ -17,17 +17,6 @@ export default function Navbar({
   const router = useRouter(); // ルーターを取得
   const pathname = usePathname();
 
-  // 共通のナビゲーションクリック処理
-  const handleNavClick = (href: string) => {
-    if (pathname === href) {
-      router.refresh(); // 同じページならリロード
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      router.push(href);
-    }
-    setIsOpen(false);
-  };
-
   const handleHomeClick = () => {
     router.push("/"); // ルートの `page.tsx` に遷移
     setIsOpen(false); // メニューを閉じる
@@ -75,15 +64,14 @@ export default function Navbar({
               initial="initial"
               whileHover="hover"
               // motion.div に onClick でハンドリングする場合、ラップ内の Link にクリック処理が伝播するよう注意
-              onClick={() => handleNavClick(href)}
               className="cursor-pointer"
             >
-              <Link href={href}>
-                {/* Link 内のテキストは span などでラップしておく */}
+              <TransitionLink href={href}>
+                {/* TransitionLink 内のテキストは span などでラップしておく */}
                 <span className="title-font md:text-2xl lg:text-3xl transition-colors">
                   {text}
                 </span>
-              </Link>
+              </TransitionLink>
             </motion.div>
           ))}
         </nav>
