@@ -30,13 +30,13 @@ const Photos = () => {
         <div className="flex flex-col ml-0 lg:ml-[240px]  ipad-pro:ml-0 group">
           <TransitionLink
             href="/works/Guilty"
-            className="description1 text-3xl sm:text-8xl text-left opacity-0 text-white group-hover:text-gray-400"
+            className="description1 font-rampart text-3xl sm:text-8xl text-left opacity-0 text-white group-hover:text-gray-400"
           >
             Guilty
           </TransitionLink>
           <TransitionLink
             href="/works/Guilty"
-            className="description1 text-2xl sm:text-6xl text-left opacity-0 text-white group-hover:text-gray-400"
+            className="description1 font-rampart text-2xl sm:text-6xl text-left opacity-0 text-white group-hover:text-gray-400"
           >
             BE:FIRST
           </TransitionLink>
@@ -46,13 +46,13 @@ const Photos = () => {
         <div className="flex flex-col ml-0 lg:ml-[150px] ipad-pro:ml-0 group">
           <TransitionLink
             href="/works/DLEAGUE"
-            className="description2 text-3xl sm:text-8xl  text-left opacity-0 text-white w-full group-hover:text-gray-400"
+            className="description2 font-rampart text-3xl sm:text-8xl  text-left opacity-0 text-white w-full group-hover:text-gray-400"
           >
             DLEAGUE
           </TransitionLink>
           <TransitionLink
             href="/works/DLEAGUE"
-            className="description2 text-2xl sm:text-6xl text-left opacity-0 text-white w-full group-hover:text-gray-400"
+            className="description2 font-rampart text-2xl sm:text-6xl text-left opacity-0 text-white w-full group-hover:text-gray-400"
           >
             Avex Royal Brats
           </TransitionLink>
@@ -90,13 +90,13 @@ const Photos = () => {
         <div className="flex flex-col ml-0 lg:ml-[240px]  ipad-pro:ml-0 group ">
           <TransitionLink
             href="/works/Iwonder"
-            className="description3 text-3xl sm:text-8xl text-left opacity-0 text-white group-hover:text-gray-400"
+            className="description3 font-rampart text-3xl sm:text-8xl text-left opacity-0 text-white group-hover:text-gray-400"
           >
             IWONDER
           </TransitionLink>
           <TransitionLink
             href="/works/Iwonder"
-            className="description3 text-2xl sm:text-6xl text-left opacity-0 text-white group-hover:text-gray-400"
+            className="description3 font-rampart text-2xl sm:text-6xl text-left opacity-0 text-white group-hover:text-gray-400"
           >
             Daice
           </TransitionLink>

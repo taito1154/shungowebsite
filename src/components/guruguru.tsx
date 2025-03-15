@@ -15,18 +15,15 @@ export default function RotatingText({
   duration?: string;
   text?: string;
 }) {
-  // 余白を追加して viewBox を大きくする
-  const viewBoxPadding = 100; // 追加する余白（調整可能）
-  const originalSize = 300; // 元の viewBox サイズ
-  const viewBoxSize = originalSize + viewBoxPadding; // 新しい viewBox の幅・高さ
-  // 中心 (150,150) を固定するためのオフセット
-  const offset = 150 - viewBoxSize / 2; // 例: viewBoxSize=400 → offset = 150 - 200 = -50
-
+  const viewBoxPadding = 100;
+  const originalSize = 300;
+  const viewBoxSize = originalSize + viewBoxPadding;
+  const offset = 150 - viewBoxSize / 2;
   const diameter = radius * 2;
   const pathD = `M150,150 m-${radius},0 a${radius},${radius} 0 1,1 ${diameter},0 a${radius},${radius} 0 1,1 -${diameter},0`;
 
-  // 円の周囲の長さ（circumference）＝ 2 * π * radius
-  const circumference = 2 * Math.PI * radius;
+  // オリジナルでは circumference を利用していたが、削除してみる
+  // const circumference = 2 * Math.PI * radius;
 
   return (
     <div
@@ -47,8 +44,8 @@ export default function RotatingText({
             fill="black"
             fontSize="16"
             textAnchor="middle"
-            textLength={circumference}
-            lengthAdjust="spacingAndGlyphs"
+            // textLength={circumference}  ← ここを削除
+            // lengthAdjust="spacingAndGlyphs"  ← ここも削除
             className={textClassName}
           >
             <textPath href="#circlePath" startOffset="50%">

@@ -52,7 +52,7 @@ export default function Works() {
 
     const isMobile = window.innerWidth <= 1024;
     const xValue = isMobile ? 0 : 100;
-    const xEnd = isMobile ? 0 : 200;
+    const xEnd = isMobile ? 0 : 150;
     const xStart = isMobile ? 0 : 300;
     gsap.to(".photo1 img", {
       opacity: 1,
@@ -134,7 +134,7 @@ export default function Works() {
     <Layout>
       <Background />
       <div className="relative bg-transparent pb-96 photo-containers  overflow-x-hidden">
-        <h1 className="title-font text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-white text-center md:py-[500px] py-[400px] lg:py-80 ipad-pro:py-[550px] iphoneSE:py-60">
+        <h1 className="title-font font-rampart text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-bold text-white text-center md:py-[500px] py-[400px] lg:py-80 ipad-pro:py-[550px] iphoneSE:py-60">
           Works
         </h1>
 

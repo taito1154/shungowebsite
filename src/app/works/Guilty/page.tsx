@@ -8,11 +8,11 @@ import BackBackScreen from "@/components/tukaerukamohaikei";
 export default function Guilty() {
   return (
     <Layout>
-      <div className="flex flex-col h-screen py-10 bg-slate-300">
-        <BackBackScreen />
+      <div className="flex flex-col h-screen py-10 bg-transparent relative ">
+        <div className="fixed inset-0 z-[-1]">
+          <BackBackScreen />
+        </div>
         <BackScreenShader />
-
-        <Header />
         <h1 className="ml-32 mt-5 text-9xl font-bold text-white z-10 font-rampart">
           Guilty
         </h1>
@@ -26,25 +26,28 @@ export default function Guilty() {
             thumbnailClassName=""
           />
         </div>
-        <div className="absolute inset-0 mt-10 ">
+        <div className="fixed inset-0 mt-10 ">
           <RotatingText
-            radius={420}
+            radius={380}
             containerClassName="mt-2"
             circleClassName="rotate-360"
             duration="20s"
             textClassName="font-bold text-4xl"
-            text="Guilty　Check My Chereo! 　Click Here!! 　Check My Chereo! 　Click Here!! 　Check My Chereo! ..."
+            text="Guilty　Check My Chereo! 　Click Here!! 　Check My Chereo! 　Click Here!! 　Check My Chereo! ...Click Here!! 　Check My Chereo! ...Click Here!! 　Check My Chereo! ..."
           />
         </div>
-        <div className="absolute inset-10 mt-10 ">
+        <div className="fixed inset-10 mt-10 ">
           <RotatingText
             radius={400}
             containerClassName="mt-2"
             circleClassName="rotate-360"
-            duration="15s"
+            duration="25s"
             textClassName="font-bold text-4xl"
-            text="Guilty　Check My Chereo!  　Check My Chereo! 　 ..."
+            text="Guilty　Check My Chereo!  　Check My Chereo! 　 ... Guilty　Check My Chereo!  　Check My Chereo! 　 ... Guilty　Check My Chereo!  　Check My Chereo! 　 ..."
           />
+        </div>
+        <div className="font-rampart absolute bottom-32 right-32 p-4 text-white text-7xl z-20">
+          2024/08/28
         </div>
       </div>
     </Layout>

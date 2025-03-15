@@ -13,7 +13,7 @@ export default function Contact() {
         className="title-font flex flex-col items-center min-h-screen 
       pt-52 md:pt-52 max-w-[1023px]:pt-52 lg:pt-24 bg-transparent px-4 ipad-pro:pt-52"
       >
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white pb-6">
+        <h1 className="text-5xl font-rampart sm:text-6xl md:text-8xl font-bold text-white pb-6">
           Contact
         </h1>
         <p className="text-1xl sm:text-3xl md:text-5xl text-white text-center mb-2">

@@ -58,7 +58,7 @@ const fragmentShader = `
     
     float alpha = wave * fade;
     // 色は黒と暗いグレーの補間により決定する
-    vec3 color = mix(vec3(0.0), vec3(0.2), wave);
+    vec3 color = mix(vec3(0.7), vec3(0.9), wave);
     
     gl_FragColor = vec4(color, alpha);
   }
