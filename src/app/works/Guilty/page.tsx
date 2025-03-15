@@ -13,10 +13,10 @@ export default function Guilty() {
         <BackScreenShader />
 
         <Header />
-        <h1 className="font-genshin ml-20 mt-5 text-9xl font-bold text-white z-10 ">
+        <h1 className="ml-32 mt-5 text-9xl font-bold text-white z-10 font-rampart">
           Guilty
         </h1>
-        <h2 className="ml-20 title-font text-6xl font-bold text-white z-10">
+        <h2 className="ml-32 title-font text-6xl font-bold text-white z-10 font-rampart">
           BE:FIRST
         </h2>
         <div className="absolute inset-0 mt-64">
@@ -28,7 +28,7 @@ export default function Guilty() {
         </div>
         <div className="absolute inset-0 mt-10 ">
           <RotatingText
-            radius={300}
+            radius={420}
             containerClassName="mt-2"
             circleClassName="rotate-360"
             duration="20s"

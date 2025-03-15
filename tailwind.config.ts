@@ -17,7 +17,7 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        genshin: ['"GenShinGothic"', "sans-serif"],
+        rampart: ['"Rampart One"', "cursive"],
       },
     },
   },

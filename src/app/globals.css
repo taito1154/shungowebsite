@@ -32,12 +32,11 @@ body {
   }
 }
 @font-face {
-  font-family: "GenShinGothic";
-  src: url("/fonts/GenShinGothic-P-Heavy.ttf") format("truetype");
+  font-family: "Rampart One";
+  src: url("/fonts/RampartOne-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
