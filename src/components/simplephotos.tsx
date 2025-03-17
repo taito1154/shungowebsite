@@ -54,7 +54,7 @@ const Photos = () => {
             href="/works/DLEAGUE"
             className="description2 font-rampart text-2xl sm:text-6xl text-left opacity-0 text-white w-full group-hover:text-gray-400"
           >
-            Avex Royal Brats
+            avex Royal Brats
           </TransitionLink>
         </div>
         <TransitionLink href="/works/DLEAGUE" className="pointer-events-none">
