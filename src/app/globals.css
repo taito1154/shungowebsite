@@ -13,7 +13,7 @@ body {
 .page-transition {
   opacity: 0;
   background: black;
-  transform: translateY(40px);
+  /* transform: translateY(40px); */
   filter: blur(12px);
 }
 

@@ -18,30 +18,27 @@ export default function About() {
           />
         </div>
 
-        {/* 基本情報 */}
-        <div className="mb-8 p-8 bg-gray-800 rounded-lg text-white text-center max-w-6xl">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="title-font font-bold text-2xl sm:text-4xl">身長</p>
-              <p className="title-font text-2xl sm:text-4xl">174cm</p>
+        <div className="mb-8 p-8 bg-gray-800 rounded-lg text-white text-center max-w-4xl shadow-lg">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="flex flex-col items-center">
+              <p className="font-bold text-xl sm:text-3xl">身長</p>
+              <p className="text-xl sm:text-3xl">174cm</p>
             </div>
-            <div>
-              <p className="title-font font-bold text-2xl sm:text-4xl">体重</p>
-              <p className="title-font text-2xl sm:text-4xl">78kg</p>
+            <div className="flex flex-col items-center">
+              <p className="font-bold text-xl sm:text-3xl">体重</p>
+              <p className="text-xl sm:text-3xl">78kg</p>
             </div>
-            <div>
-              <p className="title-font font-bold text-2xl sm:text-4xl">
-                生年月日
-              </p>
-              <p className="title-font text-2xl sm:text-4xl">2001年2月28日</p>
+            <div className="flex flex-col items-center">
+              <p className="font-bold text-xl sm:text-3xl">生年月日</p>
+              <p className="text-xl sm:text-3xl">2001年2月28日</p>
             </div>
-            <div>
-              <p className="title-font font-bold text-2xl sm:text-4xl">出身</p>
-              <p className="title-font text-2xl sm:text-4xl">福岡</p>
+            <div className="flex flex-col items-center">
+              <p className="font-bold text-xl sm:text-3xl">出身</p>
+              <p className="text-xl sm:text-3xl">福岡</p>
             </div>
-            <div className="col-span-2">
-              <p className="title-font font-bold text-2xl sm:text-4xl">趣味</p>
-              <p className="title-font text-2xl sm:text-4xl">ファッション</p>
+            <div className="sm:col-span-2 flex flex-col items-center">
+              <p className="font-bold text-xl sm:text-3xl">趣味</p>
+              <p className="text-xl sm:text-3xl">ファッション</p>
             </div>
           </div>
         </div>

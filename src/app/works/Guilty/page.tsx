@@ -167,14 +167,14 @@ export default function Guilty() {
             </div>
           </div>
         </div>
-        <div className="hidden fixed top-1/2 w-full justify-between px-40 z-30 transform -translate-y-1/2 lg:flex ipad-pro:hidden">
+        <div className="hidden fixed top-1/2 w-full justify-between px-40 z-30 transform -translate-y-1/2 lg:flex ipad-pro:hidden pointer-events-none">
           <TransitionLink href="/works/Iwonder">
             <Image
               src="/photo/arrow.png"
               alt="Prev"
               width={70}
               height={70}
-              className="transform rotate-180 filter brightness-0 invert"
+              className="transform rotate-180 filter brightness-0 invert pointer-events-auto"
             />
           </TransitionLink>
           <TransitionLink href="/works/DLEAGUE">
@@ -183,7 +183,7 @@ export default function Guilty() {
               alt="Next"
               width={70}
               height={70}
-              className="filter brightness-0 invert"
+              className="filter brightness-0 invert pointer-events-auto"
             />
           </TransitionLink>
         </div>

@@ -20,7 +20,9 @@ export default function YouTubePlayer({
   const handleClick = () => setIsPlaying(true);
 
   return (
-    <div className={`relative aspect-video ${className}`}>
+    <div
+      className={`relative aspect-video rounded-2xl overflow-hidden pointer-events-auto ${className}`}
+    >
       {isPlaying ? (
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${videoId}`}
@@ -38,7 +40,7 @@ export default function YouTubePlayer({
             className={`w-full h-full object-cover ${thumbnailClassName}`}
           />
           {/* 再生ボタンのオーバーレイ */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <svg
               className="w-16 h-16 text-white opacity-80"
               viewBox="0 0 100 100"
@@ -54,6 +56,9 @@ export default function YouTubePlayer({
               />
               <polygon points="40,30 70,50 40,70" fill="currentColor" />
             </svg>
+          </div> */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <img src="/photo/saisei.svg" alt="My Icon" className="w-20 h-20" />
           </div>
         </div>
       )}
