@@ -11,6 +11,7 @@ export default function About() {
         {/* 宣材写真 */}
         <div className="mb-16 w-[300px] sm:w-[380px] md:w-[450px] lg:w-[450px]">
           <Image
+            priority
             src="/photo/shungoartist.png"
             alt="宣材写真"
             layout="responsive"

@@ -9,7 +9,7 @@ export default function FlowingBackground() {
             Fukuoka kara kita
           </div>
           <div className="title-font flowing-text flowing-text-2 text-gray-600 opacity-50 text-3xl sm:text-[80px] whitespace-nowrap mt-[5rem]">
-            Yaken ijittekuru
+            dance daisuki desu
           </div>
           <div className="title-font flowing-text flowing-text-3 text-gray-600 opacity-50 text-6xl sm:text-[70px] whitespace-nowrap mt-[7rem]">
             yeah!!

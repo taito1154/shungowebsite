@@ -10,11 +10,12 @@ export default function Home() {
   const [isDark, setIsDark] = useState(false);
   const [showTransition, setShowTransition] = useState(true);
   const [mainVisible, setMainVisible] = useState(false);
+
   useEffect(() => {
     const timeoutDark = setTimeout(() => setIsDark(true), 8000);
+    // タイプライターのフェードアウトが 3.5～5.5 秒で完了するので、transition 表示は 5.5 秒以降に消す
     const timeoutTransition = setTimeout(() => setShowTransition(false), 5500);
     const timeoutMain = setTimeout(() => setMainVisible(true), 1000);
-    // ページ読み込み後、1秒後に motion.h1 を生成する
     const timeoutLoaded = setTimeout(() => setLoaded(true), 1);
 
     return () => {
@@ -41,6 +42,7 @@ export default function Home() {
 
   return (
     <>
+      {/* タイプライター風トランジション */}
       {showTransition && (
         <div className="typewriter-wrapper bg-slate-300">
           <h1
@@ -49,7 +51,7 @@ export default function Home() {
           >
             Choreograper
           </h1>
-          <style jsx>{`
+          <style>{`
             .typewriter-wrapper {
               position: fixed;
               top: 0;
@@ -60,6 +62,7 @@ export default function Home() {
               align-items: center;
               justify-content: center;
               z-index: 9999;
+              /* フェードアウト開始 3.5秒、2秒かけて消える */
               animation: fadeOut 2s ease-out forwards 3.5s;
             }
             .typewriter-text {
@@ -71,42 +74,57 @@ export default function Home() {
               border-right: 2px solid white;
               width: 0ch;
               animation: typing 2s steps(13, end) forwards,
-                show 0s 0.1s forwards, blink 1s step-end infinite;
+                         show 0s 0.1s forwards,
+                         blink 1s step-end infinite;
             }
             @keyframes show {
-              to {
-                opacity: 1;
-              }
+              to { opacity: 1; }
             }
             @keyframes typing {
-              from {
-                width: 0ch;
-              }
-              to {
-                width: 11ch;
-              }
+              from { width: 0ch; }
+              to { width: 11ch; }
             }
             @keyframes blink {
-              from,
-              to {
-                border-color: transparent;
-              }
-              50% {
-                border-color: white;
-              }
+              from, to { border-color: transparent; }
+              50% { border-color: white; }
             }
             @keyframes fadeOut {
-              from {
-                opacity: 1;
-              }
-              to {
-                opacity: 0;
-              }
+              from { opacity: 1; }
+              to { opacity: 0; }
             }
           `}</style>
         </div>
       )}
 
+      {/* フレームのアニメーション（画面周囲の 1px ライン） */}
+      <div className="frame">
+        <motion.div
+          className="frame_line frame-left"
+          initial={{ scaleY: 0, opacity: 0 }}
+          animate={{ scaleY: 1, opacity: 1 }}
+          transition={{ delay: 5.5, duration: 1, ease: "easeOut" }}
+        />
+        <motion.div
+          className="frame_line frame-right"
+          initial={{ scaleY: 0, opacity: 0 }}
+          animate={{ scaleY: 1, opacity: 1 }}
+          transition={{ delay: 5.6, duration: 1, ease: "easeOut" }}
+        />
+        <motion.div
+          className="frame_line frame-top"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 5.7, duration: 1, ease: "easeOut" }}
+        />
+        <motion.div
+          className="frame_line frame-bottom"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 5.8, duration: 1, ease: "easeOut" }}
+        />
+      </div>
+
+      {/* メインコンテンツ */}
       <div
         className="relative flex flex-col items-center h-screen py-10"
         style={{ visibility: mainVisible ? "visible" : "hidden" }}
@@ -123,14 +141,13 @@ export default function Home() {
         >
           <source src="/video/Shungo.mp4" type="video/mp4" />
         </motion.video>
-        {/* loaded が true になった後に motion.h1 を新しく生成 */}
         {loaded && (
           <div className="absolute pointer-events-none">
             <motion.h1
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="title-font text-4xl md:text-8xl font-extrabold mb-12"
+              className="title-font text-4xl md:text-8xl font-extrabold mb-12 mt-6"
               transition={{ duration: 1 }}
             >
               Shungo Hirata
@@ -139,7 +156,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="absolute top-1/3 left-5 md:left-10 flex flex-col space-y-6">
+      <div className="absolute top-1/3 left-8 md:left-20 flex flex-col space-y-6">
         {["About", "Works", "Contact"].map((text, index) => (
           <motion.div
             key={text}
@@ -150,13 +167,60 @@ export default function Home() {
           >
             <TransitionLink
               href={`/${text.toLowerCase()}`}
-              className="title-font text-2xl md:text-7xl font-semibold hover:underline"
+              className="font-rampart text-4xl md:text-7xl font-semibold hover:underline"
             >
               {text}
             </TransitionLink>
           </motion.div>
         ))}
       </div>
+
+      {/* ページ内でフレームのスタイルをグローバルに定義 */}
+      <style>{`
+        :root {
+          --pad: max(20px, 4vmin);
+        }
+        .frame {
+          position: fixed;
+          left: var(--pad);
+          right: var(--pad);
+          top: var(--pad);
+          bottom: var(--pad);
+          pointer-events: none;
+          overflow: hidden;
+          z-index: 10;
+        }
+        .frame_line {
+          transform-origin: center;
+          position: absolute;
+          background-color: white;
+          opacity: 0;
+        }
+        .frame-left {
+          left: 0;
+          top: 0;
+          width: 1px;
+          height: 100%;
+        }
+        .frame-right {
+          right: 0;
+          top: 0;
+          width: 1px;
+          height: 100%;
+        }
+        .frame-top {
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 1px;
+        }
+        .frame-bottom {
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 1px;
+        }
+      `}</style>
     </>
   );
 }
