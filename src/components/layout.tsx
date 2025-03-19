@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "@/app/globals.css";
+// import "@/app/globals.css";
 import Lenis from "@studio-freight/lenis";
 
 // プラグインを登録

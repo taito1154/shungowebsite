@@ -18,6 +18,7 @@ export default {
       },
       fontFamily: {
         rampart: ['"Rampart One"', "cursive"],
+        type: ['"Type writer"', "cursive"],
       },
     },
   },

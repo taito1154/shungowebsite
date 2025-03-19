@@ -46,7 +46,7 @@ export default function Home() {
       {showTransition && (
         <div className="typewriter-wrapper bg-slate-300">
           <h1
-            className="typewriter-text text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
+            className="typewriter-text font-type text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
             style={{ opacity: 0 }}
           >
             Choreograper
@@ -71,9 +71,9 @@ export default function Home() {
               color: black;
               overflow: hidden;
               white-space: nowrap;
-              border-right: 2px solid white;
+              border-right: solid white;
               width: 0ch;
-              animation: typing 2s steps(13, end) forwards,
+              animation: typing 2s steps(12, end) forwards,
                          show 0s 0.1s forwards,
                          blink 1s step-end infinite;
             }
@@ -82,7 +82,7 @@ export default function Home() {
             }
             @keyframes typing {
               from { width: 0ch; }
-              to { width: 11ch; }
+              to { width: 12ch; }
             }
             @keyframes blink {
               from, to { border-color: transparent; }
@@ -167,7 +167,7 @@ export default function Home() {
           >
             <TransitionLink
               href={`/${text.toLowerCase()}`}
-              className="font-rampart text-4xl md:text-7xl font-semibold hover:underline"
+              className="font-rampart text-4xl md:text-7xl font-semibold hover:text-slate-400"
             >
               {text}
             </TransitionLink>
