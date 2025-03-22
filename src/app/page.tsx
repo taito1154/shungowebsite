@@ -49,7 +49,7 @@ export default function Home() {
             className="typewriter-text font-type text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
             style={{ opacity: 0 }}
           >
-            Choreograper
+            Choreographer
           </h1>
           <style>{`
             .typewriter-wrapper {
@@ -57,7 +57,7 @@ export default function Home() {
               top: 0;
               left: 0;
               width: 100vw;
-              height: 100vh;
+              height: 100dvh;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -73,7 +73,7 @@ export default function Home() {
               white-space: nowrap;
               border-right: solid white;
               width: 0ch;
-              animation: typing 2s steps(12, end) forwards,
+              animation: typing 2s steps(13, end) forwards,
                          show 0s 0.1s forwards,
                          blink 1s step-end infinite;
             }
@@ -82,7 +82,7 @@ export default function Home() {
             }
             @keyframes typing {
               from { width: 0ch; }
-              to { width: 12ch; }
+              to { width: 13ch; }
             }
             @keyframes blink {
               from, to { border-color: transparent; }
