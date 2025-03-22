@@ -9,7 +9,7 @@ import { TransitionLink } from "@/components/transitionlink";
 export default function Iwonder() {
   return (
     <Layout>
-      <div className="flex flex-col h-screen py-10 bg-transparent relative ">
+      <div className="flex flex-col h-[100dvh] py-10 bg-transparent relative ">
         <div className="fixed inset-0 z-[-1]">
           <BackBackScreen />
           <BackScreenShader />
